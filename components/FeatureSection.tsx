@@ -10,11 +10,11 @@ export default function FeatureSection({
   className = "",
 }: FeatureSectionProps) {
   return (
-    <section className={`bg-gray-50 py-24 px-4 ${className}`}>
+    <section id="features" className={`bg-gray-50 py-24 px-4 ${className}`}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           {eyebrow && (
-            <span className="inline-block text-sm font-medium text-[#5271E3] uppercase tracking-wider mb-3">
+            <span className="inline-block text-lg font-medium text-[#5271E3] uppercase tracking-wider mb-3">
               {eyebrow}
             </span>
           )}
