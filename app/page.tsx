@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import FeatureSection from "@/components/FeatureSection";
 import { CheckSquare, Image, Flag, Bell, Clock, Layers } from "lucide-react";
 import { FeatureItem } from "@/types/feature";
+import ContactSection from "@/components/ContactSection";
 
 const feature: FeatureItem[] = [
   {
@@ -73,21 +74,11 @@ export default function Home() {
         feature={feature}
       />
 
-      <section className="bg-[#5271E3] py-24 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="inline-block text-lg font-medium text-white uppercase tracking-wider mb-3">
-              Contact
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-shadow-gray-100 mb-4">
-              Hubungi Kami
-            </h2>
-            <p className="text-lg text-gray-50 max-w-2xl mx-auto">
-              Hubungi kami untuk pertanyaan, saran, atau kritik.
-            </p>
-          </div>
-        </div>
-      </section>
+      <ContactSection
+        eyebrow="Pertanyaan?"
+        title="Buat pertanyaan"
+        subtitle="Jika kamu memiliki pertanyaan, jangan ragu untuk bertanya."
+      />
     </div>
   );
 }
