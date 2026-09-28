@@ -50,19 +50,25 @@ export default function Home() {
     <div className="flex flex-col min-h-screen font-sans">
       <Navbar />
 
-      <section className="bg-linear-to-br from-[#5271E3] via-[#6865E5] to-[#745EEC] min-h-screen flex flex-col items-center justify-center px-4">
+      <section
+        className="min-h-screen flex flex-col items-center justify-center px-6 py-32"
+        style={{
+          backgroundColor: "#5271E3",
+          backgroundImage:
+            "radial-gradient(circle at 20% 20%, rgba(116,94,236,0.45) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(104,101,229,0.35) 0%, transparent 50%)",
+        }}
+      >
         <div className="max-w-3xl text-center text-white">
-          <h1 className="text-4xl sm:text-5xl mb-6">
-            Tumpukan tugas,{" "}
-            <span className="font-bold">akhirnya bisa diatur.</span>
+          <h1 className="font-serif text-5xl sm:text-6xl leading-tight mb-6 font-normal">
+            Tumpukan tugas, akhirnya bisa diatur.
           </h1>
-          <p className="text-lg sm:text-xl text-white/90 mb-8">
+          <p className="text-lg sm:text-xl text-white/85 mb-10 font-sans max-w-xl mx-auto leading-relaxed">
             Catat tugas, unggah gambar, tandai mana yang paling berat — semua di
             satu tempat. Gratis, tanpa ribet.
           </p>
         </div>
         <Button href="#" variant="primary">
-          Get Started
+          Mulai sekarang
         </Button>
       </section>
 
