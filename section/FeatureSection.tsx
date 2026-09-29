@@ -12,13 +12,13 @@ export default function FeatureSection({
   return (
     <section id="features" className={`bg-gray-50 py-24 px-4 ${className}`}>
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           {eyebrow && (
-            <span className="inline-block text-lg font-medium text-brand-500 uppercase tracking-wider mb-3">
+            <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-3">
               {eyebrow}
             </span>
           )}
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="font-serif text-4xl sm:text-5xl font-normal text-gray-900 mb-4">
             {title}
           </h2>
           {subtitle && (
