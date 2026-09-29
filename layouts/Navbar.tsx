@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Logo from "./Logo";
-import Button from "./Button";
+import Logo from "../components/Logo";
+import Button from "../components/Button";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -32,7 +32,7 @@ export default function Navbar() {
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex justify-between h-16 items-center">
-          <Logo className={scrolled ? "text-[#5271E3]" : "text-white"} />
+          <Logo className={scrolled ? "text-brand-500" : "text-white"} />
 
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
@@ -41,7 +41,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-sm leading-6 transition-colors ${
                   scrolled
-                    ? "text-gray-700 hover:text-[#5271E3]"
+                    ? "text-gray-700 hover:text-brand-500"
                     : "text-white hover:text-white/80"
                 }`}
               >

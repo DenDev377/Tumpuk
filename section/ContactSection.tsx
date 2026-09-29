@@ -6,7 +6,7 @@ export default function ContactSection({
   subtitle,
 }: ContactSectionProps) {
   return (
-    <section id="contact" className="bg-gray-50 py-32 px-6" id="contact">
+    <section id="contact" className="bg-gray-50 py-32 px-6">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
           <span className="inline-block text-sm font-medium text-brand-500 uppercase tracking-wider mb-3">

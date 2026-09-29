@@ -1,5 +1,5 @@
 import type { FeatureSectionProps } from "@/types/feature";
-import FeatureCard from "./FeatureCard";
+import FeatureCard from "../components/FeatureCard";
 
 export default function FeatureSection({
   eyebrow,
@@ -14,7 +14,7 @@ export default function FeatureSection({
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           {eyebrow && (
-            <span className="inline-block text-lg font-medium text-[#5271E3] uppercase tracking-wider mb-3">
+            <span className="inline-block text-lg font-medium text-brand-500 uppercase tracking-wider mb-3">
               {eyebrow}
             </span>
           )}

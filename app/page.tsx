@@ -1,11 +1,11 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
+import Navbar from "@/layouts/Navbar";
 import Button from "@/components/Button";
-import FeatureSection from "@/components/FeatureSection";
+import FeatureSection from "@/section/FeatureSection";
 import { CheckSquare, Image, Flag, Bell, Clock, Layers } from "lucide-react";
 import { FeatureItem } from "@/types/feature";
-import ContactSection from "@/components/ContactSection";
+import ContactSection from "@/section/ContactSection";
 
 const feature: FeatureItem[] = [
   {
@@ -85,6 +85,40 @@ export default function Home() {
         title="Buat pertanyaan"
         subtitle="Jika kamu memiliki pertanyaan, jangan ragu untuk bertanya."
       />
+
+      <section className="bg-brand-500 px-4 py-32">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-4xl sm:text-5xl text-white mb-4 font-normal">
+              Bergabunglah dengan buletin kami
+            </h2>
+            <p className="text-gray-100 text-lg max-w-lg mx-auto leading-relaxed ">
+              Jangan ragu untuk bergabung dengan buletin kami. Kami akan
+              menyampaikan informasi terbaru tentang Tumpuk.
+            </p>
+          </div>
+          <form className="flex items-center gap-4 w-full">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="flex-1 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+              placeholder="email@kamu.com"
+            />
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-medium transition-colors bg-white text-brand-500 hover:bg-white/90 whitespace-nowrap"
+            >
+              Bergabung
+            </button>
+          </form>
+          <div className="text-center mt-12">
+            <p className="text-gray-100 text-sm mx-auto leading-relaxed max-w-lg">
+              © 2026 Tumpuk | Made with ❤️ in Sumsel
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
