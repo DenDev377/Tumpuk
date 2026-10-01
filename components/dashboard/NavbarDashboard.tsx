@@ -10,8 +10,6 @@ export default function NavbarDashboard() {
   const userName = session?.user?.name || "Banyak";
   const userInitial = userName.charAt(0).toUpperCase();
 
-  console.log("Status : ", status);
-  console.log("Session : ", session)
   return (
     <nav className="w-full bg-white border-b border-slate-100 shrink-0">
       <div className="w-full mx-auto px-4 sm:px-6 md:px-8 h-16 flex items-center justify-between gap-4">

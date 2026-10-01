@@ -1,7 +1,27 @@
-"use client";
-import Card from "@/components/Card";
 
-export default function Dashboard() {
+import Card from "@/components/Card";
+import { useSession } from "next-auth/react";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import { prisma } from "@/lib/prisma";
+import TaskTablePriority from "@/components/dashboard/TasksTablePriority";
+export default async function Dashboard() {
+
+  const session = await getServerSession(authOptions)
+  const userName = session?.user?.name || "Banyak"
+
+  const importantTaskData = await prisma.task.findMany({
+    where: {
+      userId: session?.user?.id,
+      priority: {
+        in: ["Tinggi", "Menengah"]
+      }
+    },
+    orderBy: {
+      dueDate: "asc"
+    }
+  })
+
   const stats = [
     {
       label: "Total Tugas",
@@ -24,8 +44,7 @@ export default function Dashboard() {
     <div className="flex flex-col w-full mx-auto px-4 sm:px-6 md:px-8">
       <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
       <p className="mt-2 text-gray-700">
-        Welcome to the Dashboard! Here you can manage your tasks, worklogs, and
-        team overview.
+        Hello {userName} ,Welcome to the Dashboard
       </p>
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -33,6 +52,11 @@ export default function Dashboard() {
           <Card key={stat.label} label={stat.label} value={stat.value} />
         ))}
       </div>
+      <div className="mt-8">
+        <TaskTablePriority dataTasks={importantTaskData} />
+      </div>
+
+
     </div>
   );
 }

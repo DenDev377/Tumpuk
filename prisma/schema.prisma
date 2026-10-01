@@ -6,8 +6,20 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+enum Priority {
+    Tinggi
+    Menengah
+    Rendah
+}
+
+enum Status {
+    BELUM_MULAI
+    DALAM_PENGERJAAN
+    SELESAI
 }
 
 model User {
@@ -20,10 +32,12 @@ model User {
 }
 
 model Task {
-    id        String   @id @default(cuid())
+    id        String    @id @default(cuid())
     title     String
-    status    String
+    status    Status
     userId    String
-    user      User     @relation(fields: [userId], references: [id])
-    createdAt DateTime @default(now())
+    user      User      @relation(fields: [userId], references: [id])
+    createdAt DateTime  @default(now())
+    priority  Priority
+    dueDate   DateTime?
 }
