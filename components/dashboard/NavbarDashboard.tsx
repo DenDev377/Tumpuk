@@ -1,7 +1,17 @@
 "use client";
+import { useSession } from "next-auth/react";
 import { Search, Plus } from "lucide-react";
-
 export default function NavbarDashboard() {
+
+  //declare hook useSession untuk mendapat data user 
+  const { data: session, status } = useSession();
+
+  //abmil inisial nama 
+  const userName = session?.user?.name || "Banyak";
+  const userInitial = userName.charAt(0).toUpperCase();
+
+  console.log("Status : ", status);
+  console.log("Session : ", session)
   return (
     <nav className="w-full bg-white border-b border-slate-100 shrink-0">
       <div className="w-full mx-auto px-4 sm:px-6 md:px-8 h-16 flex items-center justify-between gap-4">
@@ -20,10 +30,10 @@ export default function NavbarDashboard() {
           {/* Avatar + name */}
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-medium shrink-0">
-              J
+              {status === "loading" ? "..." : userInitial}
             </div>
             <span className="text-sm font-medium text-slate-900 hidden sm:block">
-              Jack
+              {status === "loading" ? "..." : userName}
             </span>
           </div>
 

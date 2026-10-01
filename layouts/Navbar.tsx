@@ -26,9 +26,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300 ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300 ${scrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex justify-between h-16 items-center">
@@ -39,18 +38,17 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm leading-6 transition-colors ${
-                  scrolled
-                    ? "text-gray-700 hover:text-brand-500"
-                    : "text-white hover:text-white/80"
-                }`}
+                className={`text-sm leading-6 transition-colors ${scrolled
+                  ? "text-gray-700 hover:text-brand-500"
+                  : "text-white hover:text-white/80"
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <Button href="/login" variant={scrolled ? "primary" : "outline"}>
+          <Button href="/auth/login" variant={scrolled ? "primary" : "outline"}>
             Login
           </Button>
         </div>
