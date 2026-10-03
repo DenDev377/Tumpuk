@@ -11,3 +11,7 @@ export type TaskProps = {
 export type EditTaskProps = {
     initialData: Task
 }
+
+export type CompletedProps = {
+    dataTasks: Task[]
+}

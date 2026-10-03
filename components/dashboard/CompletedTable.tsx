@@ -1,10 +1,10 @@
 "use client"
-import React from "react"
-import { AlertCircle, Clock, CheckCircle2 } from "lucide-react";
-import { PriorityProps } from "@/types/tasks";
-import { Priority, Status } from "@prisma/client";
+import { CompletedProps } from "@/types/tasks"
+import { Priority, Status } from "@prisma/client"
+import { AlertCircle, CheckCircle2, Clock } from "lucide-react"
 
-// Helper styles untuk badge prioritas
+
+//Helper style badge dan status
 const priorityStyles: Record<Priority, string> = {
     Tinggi: "bg-red-50 text-red-700 border-red-200",
     Menengah: "bg-amber-50 text-amber-700 border-amber-200",
@@ -18,21 +18,18 @@ const statusIcons: Record<Status, React.ReactNode> = {
 };
 const formatStatusText = (status: Status) => { return status.replace("_", " "); }
 
-export default function TaskTablePriority({ dataTasks }: PriorityProps) {
-    const importantTasks = dataTasks.filter(
-        (task) => task.priority === "Tinggi" || task.priority === "Menengah"
-    )
+export default function CompletedTable({ dataTasks }: CompletedProps) {
+
     return (
-        <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+        <div className="bg-white rounded-2xl shadow-sm mt-6 overflow-hidden border border-slate-200">
             <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between">
                 <div>
-                    <h2 className="text-lg font-semibold text-slate-900">Tugas Prioritas</h2>
+                    <h2 className="text-lg font-semibold text-slate-900">Tugas Selesai</h2>
                     <p className="text-sm text-slate-500 mt-1">
-                        Fokuskan perhatian pada tugas penting ini hari ini.
+                        Tugas yang telah selesai.
                     </p>
                 </div>
             </div>
-
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                     <thead>
@@ -44,7 +41,7 @@ export default function TaskTablePriority({ dataTasks }: PriorityProps) {
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100">
-                        {importantTasks.map((task) => (
+                        {dataTasks.map((task) => (
                             <tr
                                 key={task.id}
                                 className="hover:bg-slate-50/80 transition-colors group"
@@ -81,7 +78,7 @@ export default function TaskTablePriority({ dataTasks }: PriorityProps) {
                             </tr>
                         ))}
 
-                        {importantTasks.length === 0 && (
+                        {dataTasks.length === 0 && (
                             <tr>
                                 <td colSpan={4} className="px-6 py-10 text-center text-slate-500">
                                     Tidak ada tugas prioritas tinggi atau menengah saat ini. 🎉
