@@ -96,19 +96,21 @@ export default function AllTasksTable({ dataTasks }: TaskProps) {
                                     <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <Link
                                             href={`/dashboard/editTasks/${task.id}`}
+                                            aria-label={`Edit tugas ${task.title}`}
                                             className="p-1.5 text-slate-400 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors inline-block"
                                             title="Edit Tugas"
                                         >
-                                            <Edit className="w-4 h-4" />
+                                            <Edit aria-hidden="true" className="w-4 h-4" />
                                         </Link>
                                         <button
                                             onClick={() => handleDeleteClick(task.id)}
                                             disabled={isDeletingId === task.id}
+                                            aria-label={`Hapus tugas ${task.title}`}
                                             className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors disabled:opacity-50"
                                             title="Hapus Tugas"
                                         >
                                             {/* Trik ganti ikon kalau loading */}
-                                            {isDeletingId === task.id ? <Clock className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                                            {isDeletingId === task.id ? <Clock aria-hidden="true" className="w-4 h-4 animate-spin" /> : <Trash2 aria-hidden="true" className="w-4 h-4" />}
                                         </button>
                                     </div>
                                 </td>

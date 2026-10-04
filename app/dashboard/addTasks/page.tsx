@@ -26,7 +26,7 @@ export default function AddTasks() {
 
     return (
         <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl border border-slate-200 mt-6 shadow-sm">
-            <h1 className="text-xl font-bold text-slate-800 mb-6">Buat Tugas Baru</h1>
+            <h1 className="text-2xl font-serif text-slate-900 tracking-tight mb-6">Buat Tugas Baru</h1>
 
             {error && (
                 <div className="p-3 mb-4 text-sm text-red-600 bg-red-50 rounded-lg">

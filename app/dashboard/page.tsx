@@ -5,6 +5,13 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
 import TaskTablePriority from "@/components/dashboard/TasksTablePriority";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Dashboard | Tumpuk App',
+  description: 'Ringkasan tugas dan statistik performa harian Anda.',
+};
+
 export default async function Dashboard() {
 
   const session = await getServerSession(authOptions)
@@ -42,7 +49,7 @@ export default async function Dashboard() {
   ];
   return (
     <div className="flex flex-col w-full mx-auto px-4 sm:px-6 md:px-8">
-      <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+      <h1 className="text-3xl font-serif text-gray-900 tracking-tight">Dashboard</h1>
       <p className="mt-2 text-gray-700">
         Hello {userName} ,Welcome to the Dashboard
       </p>

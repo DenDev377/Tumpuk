@@ -2,6 +2,13 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 import CompletedTable from "@/components/dashboard/CompletedTable";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Tugas Selesai | Tumpuk App',
+  description: 'Kumpulan pencapaian dan daftar tugas yang telah Anda selesaikan.',
+};
+
 export default async function completedTask() {
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) {
@@ -24,9 +31,9 @@ export default async function completedTask() {
     const userName = session?.user?.name || "Banyak";
     return (
         <div className="flex flex-col w-full mx-auto px-4 sm:px-6 md:px-8">
-            <h1 className="text-2xl font-semibold text-gray-900">Tugas Selesai</h1>
-            <p className="mt-2 text-gray-700">
-                Hello {userName} ,Welcome to the Completed Task
+            <h1 className="text-3xl font-serif text-slate-900 tracking-tight">Tugas Selesai</h1>
+            <p className="mt-2 text-slate-600 text-sm">
+                Kumpulan pencapaian brilian {userName}. Daftar tugas yang telah sukses dieksekusi.
             </p>
 
             <div className="mt-8">

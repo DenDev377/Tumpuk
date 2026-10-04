@@ -2,6 +2,12 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 import TaskHighPriority from "@/components/dashboard/TasksHighPriorityTable";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Prioritas Tinggi | Tumpuk App',
+  description: 'Jangan menunda! Fokus pada tugas-tugas terpenting hari ini.',
+};
 
 export default async function highestPriorityPage() {
     const session = await getServerSession(authOptions)
@@ -23,9 +29,9 @@ export default async function highestPriorityPage() {
     const userName = session?.user?.name || "Banyak";
     return (
         <div className="flex flex-col w-full mx-auto px-4 sm:px-6 md:px-8">
-            <h1 className="text-2xl font-semibold text-gray-900">Tugas Prioritas Tinggi</h1>
-            <p className="mt-2 text-gray-700">
-                Hello {userName} ,Welcome to the Highest Priority Page
+            <h1 className="text-3xl font-serif text-slate-900 tracking-tight">Tugas Prioritas Titik Didih</h1>
+            <p className="mt-2 text-slate-600 text-sm">
+                Jangan ditunda {userName}! Selesaikan segera misi penting yang ada di depan mata.
             </p>
 
             <div className="mt-8">

@@ -16,8 +16,11 @@ export async function createTask(formData: FormData) {
     const priority = formData.get("priority") as Priority;
     const dueDateStr = formData.get("dueDate") as string;
 
-    if (!title || !status || !priority) {
-        throw new Error("Judul, Status, dan Prioritas wahib diisi!")
+    if (!title || title.trim().length === 0) {
+        throw new Error("Judul tugas tidak boleh kosong atau hanya berisi spasi!")
+    }
+    if (!status || !priority) {
+        throw new Error("Status dan Prioritas wajib diisi!")
     }
     let dueDate: Date | null = null
     if (dueDateStr) {
@@ -65,8 +68,11 @@ export async function updateTask(taskId: string, formData: FormData) {
     const priority = formData.get("priority") as Priority;
     const dueDateStr = formData.get("dueDate") as string;
 
-    if (!title || !status || !priority) {
-        throw new Error("Judul, Status, dan Prioritas wajib diisi!");
+    if (!title || title.trim().length === 0) {
+        throw new Error("Judul tugas tidak boleh kosong atau hanya berisi spasi!")
+    }
+    if (!status || !priority) {
+        throw new Error("Status dan Prioritas wajib diisi!")
     }
     let dueDate: Date | null = null;
     if (dueDateStr) {
