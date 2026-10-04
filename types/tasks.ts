@@ -15,3 +15,7 @@ export type EditTaskProps = {
 export type CompletedProps = {
     dataTasks: Task[]
 }
+
+export type HighestTaskProps = {
+    dataTasks: Task[]
+}
