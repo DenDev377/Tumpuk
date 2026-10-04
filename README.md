@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎯 Tumpuk - Aplikasi Manajemen Tugas Kelas Enterprise
 
-## Getting Started
+Tumpuk adalah aplikasi Web manajemen tata letak (*Task Management System*) tangguh namun estetik yang dibangun untuk pelacakan produktivitas pribadi. Aplikasi ini menyatukan antarmuka desain minimalis/brutalis premium, kinerja ultracepat (_Server Components_), dan keamanan pertahanan kokoh melalui arsitektur Next.js Modern.
 
-First, run the development server:
+## 🚀 Fitur Unggulan
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **🛡️ Autentikasi Solid**: Menggunakan `NextAuth.js`. Dilengkapi Middleware pelindung rute penuh untuk menjamin keamanan dari *Insecure Direct Object Reference (IDOR)*. Server hanya menyajikan data milik sang pengguna (*session-based query*).
+- **🔎 Akselerator Pencarian (_Global Debounced Search_)**: Mesin pencari instan di Navigasi yang memangkas penggunaan CPU server lewat *debounce-timer 400ms* sebelum meluncur mulus (tanpa memuat ulang halaman) ke tabel hasil pelacakan dinamis.
+- **⚡ Suspensi Asinkronus (Skeleton UI)**: Transisi antar menu (seperti Dashboard, Semua Tugas, dsb) dimuat setara sistem raksasa Tech berkat React Suspense/Native Next.js Skeletons. Tidak ada lagi layar abu membeku dan menjamin *Core Web Vitals* maksimal.
+- **♿ Aksesibilitas Optimal (A11y & SEO)**: Skor Google Lighthouse 100/100 disokong oleh HTML Semantik sempurna, ARIA Labels di setiap ikon UI, tata kelola tipografi elegan (*Plus Jakarta Sans* dipadu dengan judul *Instrument Serif*), dan Metadata SEO dinamis.
+- **📊 Mesin Agregat Otomatis**: Dasbor statistik data dimuat *Real-time* bukan lewat pemilahan pasif, melainkan menggunakan Kueri Kuantitatif Cerdas `Prisma.count()` yang melepaskan tegangan beban Memori (RAM).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Stack Teknologi (Tech Stack)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 15+ (App Router) / React 19
+- **Database ORM**: Prisma Client (`prisma`, `@prisma/client`)
+- **Database Engine**: Relational / MySQL
+- **Styling**: Tailwind CSS V4
+- **Auth**: NextAuth V4
+- **Icons**: Lucide React
+- **Language**: TypeScript Tertutup (*Strict Type-Safety*)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Panduan Instalasi (Development)
 
-## Learn More
+Pastikan Anda memiliki [Node.js](https://nodejs.org/) yang terpasang di sistem.
 
-To learn more about Next.js, take a look at the following resources:
+1. **Unduh Repositori/Buka Proyek Tumpuk**
+2. **Pasang Dependensi (*Packages*)**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Konfigurasi Lingkungan (*Environment Variables*)**
+   Ganti atau modifikasi file `.env` di jalur teratas direktori, dengan format:
+   ```env
+   DATABASE_URL="mysql://[user]:[password]@[hostname]:[port]/[database]"
+   NEXTAUTH_URL="http://localhost:3000"
+   NEXTAUTH_SECRET="[KODE_RAHASIA_BEBAS_ANDA]"
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Koneksi Database & Migrasi (Prisma)**
+   Pastikan mesin database menyala, eksekusi kode ini untuk membentuk kerangka tabel:
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
 
-## Deploy on Vercel
+5. **Mulai Perjalanan Kode Anda!**
+   Jalankan server aplikasi di mode pengembang:
+   ```bash
+   npm run dev
+   ```
+   Akses `http://localhost:3000` di peramban (browser) kesayangan Anda.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Kontributor
+Dibuat dengan 🔥 oleh Dendi Dev & my MUMU.

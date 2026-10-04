@@ -29,22 +29,38 @@ export default async function Dashboard() {
     }
   })
 
+  const [totalTugasCount, selesaiCount, belumSelesaiCount, tinggiCount] = await Promise.all([
+    //Total tugass
+    prisma.task.count({ where: { userId: session?.user?.id } }),
+    //Hitung Selesai
+    prisma.task.count({ where: { userId: session?.user?.id, status: "SELESAI" } }),
+    //belum selesai
+    prisma.task.count({ where: { userId: session?.user?.id, status: { not: "SELESAI" } } }),
+    //prioritas tinggi
+    prisma.task.count({ where: { userId: session?.user?.id, priority: "Tinggi" } })
+  ]
+
+
+
+
+  )
+
   const stats = [
     {
       label: "Total Tugas",
-      value: "12",
+      value: totalTugasCount.toString(),
     },
     {
       label: "Selesai",
-      value: "8",
+      value: selesaiCount.toString(),
     },
     {
       label: "Belum Selesai",
-      value: "4",
+      value: belumSelesaiCount.toString(),
     },
     {
       label: "Prioritas Tinggi",
-      value: "2",
+      value: tinggiCount.toString(),
     },
   ];
   return (
