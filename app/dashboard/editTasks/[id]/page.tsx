@@ -22,6 +22,10 @@ export default async function EditTask({ params }: any) {
         }
     })
 
+    if (!task) {
+        notFound()
+    }
+
     return (
         <div className="w-full mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <EditTaskForm initialData={task} />

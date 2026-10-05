@@ -40,7 +40,7 @@ export default function AllTasksTable({ dataTasks }: TaskProps) {
 
     return (
         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mt-6">
-            <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between">
+            <div className="px-6 py-5 border-b border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                     <h2 className="text-lg font-semibold text-slate-900">Semua Tugas Anda</h2>
                     <p className="text-sm text-slate-500 mt-1">
@@ -57,7 +57,7 @@ export default function AllTasksTable({ dataTasks }: TaskProps) {
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                        <tr className="bg-slate-50/50 border-b border-slate-100 text-sm font-medium text-slate-500">
+                        <tr className="bg-slate-50/50 border-b border-slate-100 text-sm font-medium text-slate-500 whitespace-nowrap">
                             <th className="px-6 py-4 font-medium">Nama Tugas</th>
                             <th className="px-6 py-4 font-medium">Status</th>
                             <th className="px-6 py-4 font-medium">Prioritas</th>

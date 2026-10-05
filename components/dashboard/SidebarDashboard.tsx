@@ -42,7 +42,7 @@ export default function SidebarDashboard() {
     },
   ];
   return (
-    <aside className="w-80 bg-white border-slate-200 border-r flex flex-col min-h-screen shrink-0">
+    <aside className="w-80 bg-white border-slate-200 border-r hidden md:flex flex-col min-h-screen shrink-0">
       <div className="flex flex-col h-full">
         {/* SIDEBAR HEADER */}
         <div className="h-16 flex items-center justify-between px-6 border-b border-slate-200 shrink-0">
