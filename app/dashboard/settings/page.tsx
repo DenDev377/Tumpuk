@@ -5,13 +5,13 @@ import SettingsForm from "./SettingsForm";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Pengaturan | Tumpuk App',
-  description: 'Konfigurasi profil dan keamanan kredensial akun Anda.',
+    title: 'Pengaturan | Tumpuk App',
+    description: 'Konfigurasi profil dan keamanan kredensial akun Anda.',
 };
 
 export default async function SettingsPage() {
     const session = await getServerSession(authOptions);
-    
+
     if (!session?.user?.id) {
         return (
             <div className="p-8 text-slate-500">
